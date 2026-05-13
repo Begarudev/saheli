@@ -24,6 +24,7 @@ import {
   MAX_CONTACTS,
 } from '../../src/services/contacts';
 import { dispatchSOS } from '../../src/services/sos';
+import { PencilIcon, TrashIcon, ContactsIcon, PhoneIcon, CheckIcon } from '../../src/components/icons';
 import { HELPLINES } from '../../src/data/helplines';
 import { OSCS } from '../../src/data/osc';
 
@@ -210,13 +211,13 @@ export default function SafetyScreen() {
                   <Text style={typography.small}>{c.phone}</Text>
                 </View>
                 <Pressable onPress={() => openEdit(c)} style={styles.smallBtn}>
-                  <Text style={styles.smallTxt}>✎</Text>
+                  <PencilIcon size={16} color={colors.inkTeal} />
                 </Pressable>
                 <Pressable
                   onPress={() => deleteContact(c.id)}
                   style={[styles.smallBtn, { backgroundColor: colors.sindoor }]}
                 >
-                  <Text style={styles.smallTxt}>🗑</Text>
+                  <TrashIcon size={16} color={colors.cream} />
                 </Pressable>
               </View>
             ))
@@ -240,7 +241,8 @@ export default function SafetyScreen() {
                 contacts.length >= MAX_CONTACTS && { opacity: 0.5 },
               ]}
             >
-              <Text style={styles.actionTxt}>📇 From Contacts</Text>
+              <ContactsIcon size={16} color={colors.inkTeal} />
+              <Text style={styles.actionTxt}>From Contacts</Text>
             </Pressable>
           </View>
         </View>
@@ -253,7 +255,10 @@ export default function SafetyScreen() {
                 <Text style={styles.helpHi}>{h.hi}</Text>
                 <Text style={typography.small}>{h.en}</Text>
               </View>
-              <Text style={styles.helpNum}>📞 {h.number}</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.xs }}>
+                <PhoneIcon size={16} color={colors.inkTeal} />
+                <Text style={styles.helpNum}>{h.number}</Text>
+              </View>
             </Pressable>
           ))}
         </View>
@@ -281,7 +286,7 @@ export default function SafetyScreen() {
                   {o.district}, {o.state}
                 </Text>
               </View>
-              <Text style={styles.helpNum}>📞</Text>
+              <PhoneIcon size={16} color={colors.inkTeal} />
             </Pressable>
           ))}
         </View>
@@ -328,7 +333,7 @@ export default function SafetyScreen() {
       <Modal transparent visible={confirmOpen} animationType="fade">
         <View style={styles.modalBg}>
           <View style={styles.confirmCard}>
-            <Text style={styles.checkmark}>✓</Text>
+            <CheckIcon size={48} color={colors.indigo} strokeWidth={2} />
             <Text style={styles.confirmTitle}>मदद भेज दी गई</Text>
             <Text style={typography.small}>SOS dispatched to {contacts.length} contact(s)</Text>
           </View>
@@ -435,6 +440,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(28, 36, 84, 0.15)',
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
   },
   actionTxt: {
     color: colors.indigo,

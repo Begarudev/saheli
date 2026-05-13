@@ -31,7 +31,7 @@ import {
 } from '../../src/services/vault';
 import { stt, embed } from '../../src/services/sarvam';
 import { cosine } from '../../src/services/rag';
-import { MicIcon } from '../../src/components/icons';
+import { MicIcon, MapPinIcon, TrashIcon } from '../../src/components/icons';
 
 export default function VaultScreen() {
   const [items, setItems] = useState<VaultItem[]>([]);
@@ -304,11 +304,15 @@ export default function VaultScreen() {
               ) : null}
               <Text style={styles.meta}>SHA-256: {shortHash(item.hash)}</Text>
               {item.lat != null && item.lng != null ? (
-                <Text style={styles.meta}>
-                  📍 {item.lat.toFixed(4)}, {item.lng.toFixed(4)}
-                </Text>
+                <View style={styles.metaRow}>
+                  <MapPinIcon size={12} color={colors.taupe} />
+                  <Text style={styles.meta}>{item.lat.toFixed(4)}, {item.lng.toFixed(4)}</Text>
+                </View>
               ) : (
-                <Text style={styles.meta}>📍 location unavailable</Text>
+                <View style={styles.metaRow}>
+                  <MapPinIcon size={12} color={colors.taupe} />
+                  <Text style={styles.meta}>location unavailable</Text>
+                </View>
               )}
             </View>
             <View style={{ gap: 6 }}>
@@ -318,7 +322,7 @@ export default function VaultScreen() {
                 </Pressable>
               ) : null}
               <Pressable onPress={() => onDelete(item)} style={[styles.smallBtn, { backgroundColor: colors.sindoor, borderColor: colors.sindoor }]}>
-                <Text style={[styles.smallTxt, { color: colors.cream }]}>🗑</Text>
+                <TrashIcon size={14} color={colors.cream} />
               </Pressable>
             </View>
           </View>
@@ -441,6 +445,12 @@ const styles = StyleSheet.create({
     color: colors.taupe,
     marginTop: 4,
     letterSpacing: 0.5,
+  },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 4,
   },
   smallBtn: {
     backgroundColor: colors.creamSoft,

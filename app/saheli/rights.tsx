@@ -13,7 +13,7 @@ import { Audio } from 'expo-av';
 import * as Haptics from 'expo-haptics';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { QuickExitButton } from '../../src/components/QuickExitButton';
-import { MicIcon } from '../../src/components/icons';
+import { MicIcon, VolumeOnIcon, VolumeOffIcon } from '../../src/components/icons';
 import { colors, radius, spacing, typography, fonts } from '../../src/theme';
 import * as sarvam from '../../src/services/sarvam';
 import { QUICK_QUESTIONS } from '../../src/data/rights';
@@ -242,7 +242,11 @@ export default function RightsScreen() {
           accessibilityLabel={`Voice playback ${autoplay ? 'on' : 'off'}`}
           style={[styles.voiceToggle, autoplay && styles.voiceToggleOn]}
         >
-          <Text style={styles.voiceToggleIcon}>{autoplay ? '🔊' : '🔇'}</Text>
+          {autoplay ? (
+            <VolumeOnIcon size={16} color={colors.indigo} />
+          ) : (
+            <VolumeOffIcon size={16} color={colors.indigo} />
+          )}
           <Text style={styles.voiceToggleTxt}>
             {autoplay ? 'Voice: On' : 'Voice: Off'}
           </Text>

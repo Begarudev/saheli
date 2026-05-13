@@ -108,6 +108,95 @@ export function MicIcon(p: IconProps) {
   );
 }
 
+export function PencilIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M4 20h4l10-10-4-4L4 16v4Z" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Line x1="13" y1="7" x2="17" y2="11" stroke={color} strokeWidth={strokeWidth} />
+    </Svg>
+  );
+}
+
+export function TrashIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Polyline points="4 7 20 7" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+      <Path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Path d="M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Line x1="10" y1="11" x2="10" y2="18" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+      <Line x1="14" y1="11" x2="14" y2="18" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function ContactsIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Rect x="4" y="4" width="16" height="16" rx="2" stroke={color} strokeWidth={strokeWidth} />
+      <Circle cx={12} cy={11} r={3} stroke={color} strokeWidth={strokeWidth} />
+      <Path d="M7 18c1-2 3-3 5-3s4 1 5 3" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function PhoneIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2A14 14 0 0 1 4 6a2 2 0 0 1 2-2Z"
+        stroke={color}
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function VolumeOnIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M4 9v6h4l5 4V5L8 9H4Z" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Path d="M16 8a5 5 0 0 1 0 8" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+      <Path d="M19 5a9 9 0 0 1 0 14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function VolumeOffIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M4 9v6h4l5 4V5L8 9H4Z" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Line x1="17" y1="9" x2="22" y2="14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+      <Line x1="22" y1="9" x2="17" y2="14" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function MapPinIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
+      <Circle cx={12} cy={9} r={2.5} stroke={color} strokeWidth={strokeWidth} />
+    </Svg>
+  );
+}
+
+export function CheckIcon(p: IconProps) {
+  const { size, color, strokeWidth } = D(p);
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Polyline points="5 12 10 17 19 7" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+    </Svg>
+  );
+}
+
 export function HeartPulseIcon(p: IconProps) {
   const { size, color, strokeWidth } = D(p);
   return (
