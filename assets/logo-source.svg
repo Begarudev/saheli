@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Saheli / Daily Mantras launcher icon.
+       Layered lotus inspired by Indian textile and devotional iconography.
+       Saffron + deeper saffron on deep navy. No gradients on the petals
+       themselves — flat fills with two-tone hierarchy. -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="62%">
+      <stop offset="0%" stop-color="#241858"/>
+      <stop offset="60%" stop-color="#1a1145"/>
+      <stop offset="100%" stop-color="#0f0828"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- 8 outer petals (deeper saffron) -->
+  <g transform="translate(512 512)" fill="#d97706" stroke="#1a1145" stroke-width="6" stroke-linejoin="round">
+    <g>
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(45)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(90)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(135)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(180)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(225)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(270)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+    <g transform="rotate(315)">
+      <path d="M0 -360 C 86 -260, 86 -120, 0 -40 C -86 -120, -86 -260, 0 -360 Z"/>
+    </g>
+  </g>
+
+  <!-- 8 inner petals (bright saffron) -->
+  <g transform="translate(512 512) rotate(22.5)" fill="#f59e0b" stroke="#1a1145" stroke-width="5" stroke-linejoin="round">
+    <g>
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -90, -64 -190, 0 -260 Z"/>
+    </g>
+    <g transform="rotate(45)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(90)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(135)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(180)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(225)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(270)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+    <g transform="rotate(315)">
+      <path d="M0 -260 C 64 -190, 64 -90, 0 -30 C -64 -190, -64 -190, 0 -260 Z" />
+    </g>
+  </g>
+
+  <!-- Center medallion -->
+  <circle cx="512" cy="512" r="92" fill="#fefae0" stroke="#1a1145" stroke-width="6"/>
+  <circle cx="512" cy="512" r="62" fill="#c5443c"/>
+  <circle cx="512" cy="512" r="22" fill="#fefae0"/>
+</svg>
