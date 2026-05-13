@@ -63,3 +63,7 @@ android/app/saheli-release.keystore
 
 # Empty marker
 .codex
+
+# Agent instructions (local only)
+CLAUDE.md
+.claude/
