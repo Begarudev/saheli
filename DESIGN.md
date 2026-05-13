@@ -1,34 +1,28 @@
-# Design System — Saheli (सहेली)
-
-> **The memorable thing**: After 60 seconds with Saheli, the user remembers — *"This is mine. Designed for me, not a translated American app."*
+# Design System: Saheli (सहेली)
 
 Devanagari leads. English follows. Sindoor is reserved for distress.
 
----
+## Product context
 
-## Product Context
+- **What it is.** A women's rights, safety, evidence, schemes, and health companion for Indian women.
+- **Who it's for.** Women aged 18–45 in tier-2 / tier-3 India. Default users use it openly. Users on monitored phones turn on Privacy Mode and the app wears a cover (Mantras, Duas, or Cycle).
+- **Space.** Women's tech, civic tech, health, government schemes. The category is dominated by NGO sites that look like translated US templates and Bharat-tech apps that converge on white background, cartoon illustration, Hinglish marketing header. We reject both.
+- **Project type.** Native Android (Expo React Native). Hindi-first. Phone-only. No web.
 
-- **What it is**: A women's rights, safety, evidence, schemes, and health companion for Indian women.
-- **Who it's for**: Women aged 18–45 in tier-2 / tier-3 India. Default users use it openly. Users on monitored phones turn on Privacy Mode and the app wears a cover (Mantras, Duas, or Cycle).
-- **Space**: Women's tech, civic tech, health, government schemes — historically dominated by NGO sites that look like translated US templates and Bharat-tech apps that converge on white-bg + cartoon-illustration + Hinglish-marketing-header. We reject both.
-- **Project type**: Native Android (Expo React Native). Hindi-first. Phone-only. No web.
+## Aesthetic direction
 
-## Aesthetic Direction
+- **Direction.** *Editorial Bharat.* Closer to a contemporary Hindi magazine (Sarita, Outlook Hindi) than to Cred or Razorpay. Strong typographic hierarchy, asymmetric grid, generous space.
+- **Decoration.** Intentional: block-print pattern bands as section dividers. No cartoon illustrations. No stock photos.
+- **Mood.** Calm, dignified, adult. Indian textile warmth, not corporate cool. Editorial restraint, not playful exuberance. The opposite of clinical.
+- **Reference posture.** Indian magazine layout, textile-print color memory, monoline SVG iconography. Avoid: NGO template, SaaS dashboard, Material 3 default.
 
-- **Direction**: **Editorial Bharat** — closer to a contemporary Hindi magazine (Sarita, Outlook Hindi) than to Cred or Razorpay. Strong typographic hierarchy, asymmetric grid, generous typographic space.
-- **Decoration level**: Intentional — block-print pattern bands as section dividers. NO cartoon illustrations. NO stock photos.
-- **Mood**: Calm, dignified, adult. Indian textile warmth, not corporate cool. Editorial restraint, not playful exuberance. The opposite of clinical.
-- **Reference posture**: Indian magazine layout + textile-print color memory + monoline SVG iconography. Avoid: NGO-template, SaaS dashboard, Material 3 default.
-
-## Memorable Moves (the deliberate risks)
+## Deliberate risks
 
 ### 1. Sindoor is reserved for danger, never decoration
-The most charged color in Indian visual culture (sindoor at marriage, kumkum at temple, vermilion at festival) is **only** used for SOS, emergency, distress. Never for buttons, links, accents, badges. **If sindoor appears on screen, something serious is happening.** Forces hierarchy honesty — you cannot bury the SOS.
+The most charged color in Indian visual culture (sindoor at marriage, kumkum at temple, vermilion at festival) is used *only* for SOS, emergency, distress. Never for buttons, links, accents, or badges. If sindoor appears on screen, something serious is happening. The rule forces hierarchy honesty: you cannot bury the SOS.
 
 ### 2. Devanagari leads, English follows
-Default headline language is Hindi-Devanagari, primary type weight, full size, indigo. English appears as *secondary translation* in muted teal, smaller, below or beside. Inverts the universal "English-first with Hindi label appended" pattern.
-
-This forces every screen to confront whether it stands on Hindi alone. It also signals — to the user, to the abuser, to the judge in a hackathon — that this app's center of gravity is Bharat, not English-medium India.
+Default headline language is Hindi-Devanagari, primary weight, full size, indigo. English appears as secondary translation in muted teal, smaller, below or beside. This inverts the standard "English-first with Hindi label appended" pattern and forces every screen to confront whether it stands on Hindi alone.
 
 ## Typography
 
@@ -75,11 +69,11 @@ This forces every screen to confront whether it stands on Hindi alone. It also s
 
 **Source**: pulled from Bagh and Ajrakh block prints. Indigo + cream + vermilion is a thousand-year-old Indian textile combination.
 
-**Dark mode**: Inverted Editorial Bharat — `indigo` becomes the bg, `cream` becomes the text, sindoor stays sindoor. Saturation reduced 10% on indigo for OLED.
+**Dark mode**: Inverted Editorial Bharat. `indigo` becomes the bg, `cream` becomes the text, sindoor stays sindoor. Saturation reduced 10% on indigo for OLED.
 
 **Anti-patterns** (banned at the system level):
 - Purple, violet, lavender as accent (the "AI Lila" tell)
-- Saffron-on-navy (this project's prior aesthetic — anti-convergence rule)
+- Saffron-on-navy (this project's prior aesthetic. anti-convergence rule)
 - Gradients on cards or buttons
 - Neon glows, drop shadows over 8% opacity
 - Pure black `#000000`
@@ -96,14 +90,14 @@ This forces every screen to confront whether it stands on Hindi alone. It also s
 
 ## Layout
 
-- **Approach**: Creative-editorial within a phone-portrait constraint. Asymmetric in subtle ways — not chaotic.
+- **Approach**: Creative-editorial within a phone-portrait constraint. Asymmetric in subtle ways. not chaotic.
 - **Grid**: Single column with intentional left-bleed indents on Devanagari headlines (Devanagari sits ~8px left of the English caption, magazine pull-quote feel).
-- **Max content width**: full phone (no max — it's a phone).
+- **Max content width**: full phone (no max. it's a phone).
 - **Border radius scale**:
-  - `sm` 4 — chips, small badges
-  - `md` 12 — cards, tiles
-  - `lg` 18 — hero cards, modals
-  - `pill` 999 — circular buttons (SOS), pill toggles
+  - `sm` 4. chips, small badges
+  - `md` 12. cards, tiles
+  - `lg` 18. hero cards, modals
+  - `pill` 999. circular buttons (SOS), pill toggles
 - **Block-print divider**: 4-8 px tall horizontal stripe of stylized Ajrakh/Bagh motifs (diamonds, dots, lines), used between major page sections. Implement as inline react-native-svg pattern, not image asset. Sits on cream bg in indigo at 30% opacity.
 
 ## Iconography
@@ -134,14 +128,14 @@ The Editorial Bharat system is the **Saheli core**. Each cover overrides the pal
 | Duas (Muslim) | emerald `#0e2b27` | warm gold `#d4a24c` | Aniconic; geometric only |
 | Cycle (secular) | lavender `#f3f0ff` | violet `#7c5cff` | Religion-neutral; calmer accent |
 
-The three covers are **deliberately different from the Saheli core** — that's the whole point of a cover. Inside Saheli, Editorial Bharat governs.
+The three covers are **deliberately different from the Saheli core**. that's the whole point of a cover. Inside Saheli, Editorial Bharat governs.
 
 ## State Patterns
 
 - **Loading**: skeleton blocks in `creamSoft`, never a spinning circle.
 - **Empty**: full-screen Devanagari headline + small English caption + a single primary action. No illustrations.
 - **Error / failure**: sindoor banner, full-width, with a Devanagari headline + recovery action.
-- **Success**: indigo banner with a brief Devanagari ack. Never green checkmark — green is not in the system.
+- **Success**: indigo banner with a brief Devanagari ack. Never green checkmark. green is not in the system.
 - **Tactile**: `scale(0.96)` on press-in, spring back. Heavy haptic on SOS dispatch (handled in `src/services/sos.ts`, see haptic patterns).
 
 ## Haptic patterns (referenced from system)
@@ -184,4 +178,4 @@ Before merging, every screen passes:
 | 2026-05-09 | Sindoor reserved for distress only | Charged color in Indian visual culture deserves charged usage |
 | 2026-05-09 | Devanagari leads, English follows | Inverts Indian-SaaS convention; signals center-of-gravity is Bharat |
 | 2026-05-09 | Tiro Devanagari Hindi + Mukta + Fraunces | None of these are convergence picks. Tiro is editorial, Mukta is dual-script-balanced, Fraunces matches Tiro's tone. |
-| 2026-05-09 | Block-print divider as the only decoration | Replaces cartoon illustrations with stylized textile motif — Indian visual root, not Western flat-design root |
+| 2026-05-09 | Block-print divider as the only decoration | Replaces cartoon illustrations with stylized textile motif. Indian visual root, not Western flat-design root |
