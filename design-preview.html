@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="hi-IN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Saheli — Editorial Bharat Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #fefae0;
+  --cream-soft: #f5e9d3;
+  --indigo: #1c2454;
+  --indigo-soft: #2c3a7a;
+  --ink-teal: #0e3b3c;
+  --taupe: #7a6f47;
+  --sindoor: #c5443c;
+  --sindoor-soft: #e09c97;
+  --emerald: #0e2b27;
+  --gold: #d4a24c;
+  --lavender: #f3f0ff;
+  --violet: #7c5cff;
+  --saffron-bg: #1a1145;
+  --saffron: #f59e0b;
+  --hi-display: 'Tiro Devanagari Hindi', serif;
+  --en-display: 'Fraunces', serif;
+  --body: 'Mukta', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--cream); color: var(--ink-teal); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+body { padding: 64px 32px; max-width: 1400px; margin: 0 auto; }
+
+/* ---------- TYPOGRAPHY ---------- */
+.brand {
+  font-family: var(--hi-display);
+  font-size: 80px;
+  color: var(--indigo);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.brand-en {
+  font-family: var(--en-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--taupe);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+}
+.section-label {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sindoor);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--indigo); opacity: 0.15;
+}
+.section-title {
+  font-family: var(--hi-display);
+  font-size: 48px;
+  color: var(--indigo);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+.section-sub {
+  font-family: var(--en-display);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink-teal);
+  margin-bottom: 48px;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+
+/* ---------- BLOCK-PRINT DIVIDER ---------- */
+.divider {
+  display: block;
+  width: 100%;
+  height: 16px;
+  margin: 64px 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='16' viewBox='0 0 80 16'><g fill='none' stroke='%231c2454' stroke-opacity='0.35' stroke-width='1.2'><path d='M0 8 L80 8'/><path d='M10 4 L14 8 L10 12 L6 8 Z'/><path d='M30 4 L34 8 L30 12 L26 8 Z'/><path d='M50 4 L54 8 L50 12 L46 8 Z'/><path d='M70 4 L74 8 L70 12 L66 8 Z'/><circle cx='20' cy='8' r='1.4'/><circle cx='40' cy='8' r='1.4'/><circle cx='60' cy='8' r='1.4'/><circle cx='80' cy='8' r='1.4'/><circle cx='0' cy='8' r='1.4'/></g></svg>");
+  background-repeat: repeat-x;
+  background-size: 80px 16px;
+}
+
+/* ---------- LAYOUT ---------- */
+.row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; align-items: start; }
+@media (max-width: 980px) { .row { grid-template-columns: 1fr; } }
+
+/* ---------- PHONE FRAME ---------- */
+.phone {
+  background: var(--cream);
+  width: 360px;
+  margin: 0 auto;
+  border: 1px solid var(--indigo-soft);
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 0 24px 60px -20px rgba(28, 36, 84, 0.18);
+  font-family: var(--body);
+  color: var(--ink-teal);
+}
+.phone-inner {
+  background: var(--cream);
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+}
+.phone-status {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px 6px;
+  font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--indigo);
+}
+.phone-caption {
+  text-align: center;
+  margin-top: 16px;
+  font-family: var(--en-display); font-style: italic; font-size: 13px;
+  color: var(--taupe);
+}
+
+/* ---------- SAHELI HOME (DEFAULT EDITORIAL BHARAT) ---------- */
+.sh-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 24px 8px;
+}
+.sh-wordmark {
+  font-family: var(--hi-display); font-size: 26px; color: var(--indigo); line-height: 1;
+}
+.sh-icons { display: flex; gap: 16px; }
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 18px;
+  border: 1px solid rgba(28, 36, 84, 0.18);
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+}
+.sh-greeting {
+  padding: 8px 24px 0;
+  font-family: var(--hi-display);
+  font-size: 16px;
+  color: var(--ink-teal);
+  opacity: 0.85;
+}
+.sh-greeting-en {
+  padding: 4px 24px 24px;
+  font-family: var(--en-display); font-style: italic; font-size: 12px;
+  color: var(--taupe);
+}
+.sh-sos-card {
+  margin: 0 24px;
+  padding: 36px 24px 32px;
+  border: 1px solid rgba(28, 36, 84, 0.15);
+  border-radius: 18px;
+  background: var(--cream-soft);
+  text-align: center;
+  position: relative;
+}
+.sh-sos-headline {
+  font-family: var(--hi-display);
+  font-size: 36px;
+  color: var(--indigo);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.sh-sos-button {
+  width: 140px; height: 140px;
+  background: var(--sindoor);
+  border: 3px solid #a93630;
+  border-radius: 999px;
+  margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--cream);
+  font-family: var(--hi-display);
+  font-size: 22px;
+  line-height: 1.2;
+  box-shadow: 0 12px 32px -10px rgba(197, 68, 60, 0.45);
+}
+.sh-sos-button .en {
+  font-family: var(--body); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  margin-top: 6px; opacity: 0.85;
+}
+.sh-sos-hint {
+  margin-top: 16px;
+  font-family: var(--en-display); font-style: italic; font-size: 12px;
+  color: var(--taupe);
+}
+.sh-tiles {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  padding: 24px;
+}
+.sh-tile {
+  background: var(--cream);
+  border: 1px solid rgba(28, 36, 84, 0.18);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.sh-tile-icon { color: var(--ink-teal); }
+.sh-tile-hi {
+  font-family: var(--hi-display); font-size: 22px; color: var(--indigo); line-height: 1.1;
+}
+.sh-tile-en {
+  font-family: var(--body); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--taupe); margin-top: 4px;
+}
+.sh-footer {
+  padding: 8px 24px 24px;
+  font-family: var(--body); font-size: 11px;
+  color: var(--taupe); text-align: center;
+}
+
+/* ---------- RIGHTS CHAT ---------- */
+.chat-header {
+  padding: 20px 24px 12px;
+  border-bottom: 1px solid rgba(28, 36, 84, 0.1);
+}
+.chat-title-hi { font-family: var(--hi-display); font-size: 28px; color: var(--indigo); line-height: 1.1; }
+.chat-title-en { font-family: var(--en-display); font-style: italic; font-size: 13px; color: var(--taupe); margin-top: 4px; }
+.chat-toggle {
+  display: inline-flex; gap: 6px; align-items: center;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border: 1px solid rgba(28, 36, 84, 0.2);
+  border-radius: 999px;
+  font-family: var(--body); font-size: 11px; color: var(--taupe);
+}
+.chat-toggle .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--taupe); }
+.chat-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+.chat-bubble {
+  padding: 14px 16px;
+  border-radius: 12px;
+  max-width: 88%;
+  font-family: var(--body); font-size: 14px;
+  line-height: 1.55;
+}
+.chat-bubble.user {
+  background: var(--indigo);
+  color: var(--cream);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  font-family: var(--hi-display);
+  font-size: 16px;
+}
+.chat-bubble.bot {
+  background: var(--cream-soft);
+  color: var(--ink-teal);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(28, 36, 84, 0.1);
+  font-family: var(--hi-display);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.chat-sources {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid rgba(28, 36, 84, 0.08);
+}
+.chat-source-chip {
+  font-family: var(--body); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--taupe);
+  padding: 3px 8px;
+  border: 1px solid rgba(28, 36, 84, 0.18);
+  border-radius: 999px;
+}
+.chat-tool-card {
+  background: var(--cream);
+  border: 1.5px solid var(--indigo);
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 8px;
+  align-self: flex-start;
+  max-width: 88%;
+}
+.chat-tool-label {
+  font-family: var(--body); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--sindoor);
+  margin-bottom: 8px;
+}
+.chat-tool-title {
+  font-family: var(--hi-display); font-size: 18px; color: var(--indigo);
+  line-height: 1.2; margin-bottom: 4px;
+}
+.chat-tool-meta {
+  font-family: var(--body); font-size: 12px; color: var(--ink-teal);
+  margin-bottom: 10px;
+}
+.chat-tool-cta {
+  font-family: var(--body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream); background: var(--indigo);
+  padding: 8px 14px; border-radius: 999px; display: inline-block;
+}
+.chat-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(28, 36, 84, 0.08);
+}
+.chat-chip {
+  background: var(--cream-soft);
+  border: 1px solid rgba(28, 36, 84, 0.15);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-family: var(--hi-display); font-size: 13px; color: var(--indigo);
+}
+.chat-input {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid rgba(28, 36, 84, 0.08);
+}
+.chat-mic {
+  width: 48px; height: 48px; border-radius: 999px;
+  background: var(--indigo);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream);
+}
+.chat-input-field {
+  flex: 1;
+  font-family: var(--hi-display); font-size: 15px; color: var(--taupe);
+}
+
+/* ---------- VAULT ---------- */
+.vault-header {
+  padding: 20px 24px 12px;
+}
+.vault-search {
+  margin: 0 20px;
+  padding: 10px 14px;
+  background: var(--cream-soft);
+  border: 1px solid rgba(28, 36, 84, 0.12);
+  border-radius: 12px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--body); font-size: 13px; color: var(--taupe);
+}
+.vault-list { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+.vault-item {
+  display: flex; gap: 12px;
+  padding: 12px;
+  background: var(--cream);
+  border: 1px solid rgba(28, 36, 84, 0.12);
+  border-radius: 12px;
+}
+.vault-item-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--cream-soft);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--indigo);
+  flex-shrink: 0;
+}
+.vault-item-body { flex: 1; min-width: 0; }
+.vault-item-title {
+  font-family: var(--hi-display); font-size: 15px; color: var(--indigo);
+  line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.vault-item-meta {
+  font-family: var(--mono); font-size: 10px; color: var(--taupe);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- SETTINGS ---------- */
+.settings-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(28, 36, 84, 0.08);
+}
+.settings-label-hi { font-family: var(--hi-display); font-size: 17px; color: var(--indigo); line-height: 1.2; }
+.settings-label-en { font-family: var(--en-display); font-style: italic; font-size: 12px; color: var(--taupe); margin-top: 2px; }
+.toggle {
+  width: 44px; height: 24px; border-radius: 999px;
+  background: var(--indigo); position: relative;
+}
+.toggle::after {
+  content: ''; position: absolute; top: 2px; right: 2px;
+  width: 20px; height: 20px; border-radius: 999px;
+  background: var(--cream);
+}
+.toggle.off { background: rgba(28, 36, 84, 0.15); }
+.toggle.off::after { right: auto; left: 2px; }
+
+/* ---------- COVER VARIANTS ---------- */
+.cover-mantras {
+  background: var(--saffron-bg); color: var(--cream);
+  padding: 24px;
+  min-height: 540px;
+}
+.cover-mantras .wordmark { font-family: var(--hi-display); font-size: 36px; color: var(--cream); }
+.cover-mantras .saffron-tag { color: var(--saffron); font-size: 11px; font-weight: 600; letter-spacing: 0.4em; text-transform: uppercase; margin-top: 4px; }
+.cover-mantras .mantra-card {
+  margin-top: 32px; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 18px; padding: 24px;
+}
+.cover-mantras .mantra-deity { color: var(--saffron); font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; }
+.cover-mantras .mantra-text { font-family: var(--hi-display); font-size: 22px; color: var(--saffron); margin-top: 12px; line-height: 1.5; }
+.cover-mantras .mantra-translit { font-family: var(--body); font-size: 13px; color: var(--cream); opacity: 0.7; margin-top: 8px; }
+.cover-mantras .mantra-meaning { font-family: var(--body); font-size: 13px; color: var(--cream); opacity: 0.85; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(245,158,11,0.15); }
+
+.cover-duas {
+  background: var(--emerald); color: #f5ecd9;
+  padding: 24px; min-height: 540px;
+}
+.cover-duas .wordmark { font-family: var(--hi-display); font-size: 28px; color: var(--gold); }
+.cover-duas .bismillah { font-size: 16px; color: #f5ecd9; opacity: 0.7; direction: rtl; text-align: right; margin-top: 4px; }
+.cover-duas .dua-card {
+  margin-top: 24px;
+  border: 1px solid rgba(212,162,76,0.3);
+  border-radius: 14px;
+  padding: 22px;
+  background: rgba(255,255,255,0.03);
+}
+.cover-duas .arabic { font-size: 28px; color: var(--gold); direction: rtl; text-align: right; line-height: 1.7; }
+.cover-duas .translit { font-family: var(--body); font-style: italic; font-size: 13px; color: #f5ecd9; opacity: 0.65; margin-top: 8px; }
+.cover-duas .meaning { font-family: var(--body); font-size: 13px; color: #f5ecd9; opacity: 0.85; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(212,162,76,0.15); }
+.cover-duas .tasbih {
+  margin: 32px auto 0;
+  width: 110px; height: 110px;
+  border-radius: 999px;
+  border: 2px solid var(--gold);
+  background: rgba(212,162,76,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--hi-display); font-size: 36px; color: var(--gold);
+}
+.cover-duas .tasbih-label { text-align: center; font-family: var(--body); font-size: 11px; color: #f5ecd9; opacity: 0.6; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 12px; }
+
+.cover-cycle {
+  background: var(--lavender); color: var(--indigo);
+  padding: 24px; min-height: 540px;
+}
+.cover-cycle .wordmark { font-family: var(--hi-display); font-size: 26px; color: var(--indigo); }
+.cover-cycle .sub { font-family: var(--en-display); font-style: italic; font-size: 13px; color: var(--violet); margin-top: 4px; }
+.cover-cycle .ring {
+  margin: 36px auto 0; width: 200px; height: 200px;
+  border-radius: 999px;
+  border: 8px solid var(--violet);
+  border-right-color: rgba(124,92,255,0.2);
+  border-bottom-color: rgba(124,92,255,0.2);
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover-cycle .ring-inner {
+  transform: rotate(45deg);
+  text-align: center;
+}
+.cover-cycle .ring-day { font-family: var(--hi-display); font-size: 56px; color: var(--indigo); line-height: 1; }
+.cover-cycle .ring-of { font-family: var(--en-display); font-style: italic; font-size: 13px; color: var(--violet); margin-top: 6px; }
+.cover-cycle .log-btn {
+  margin: 36px auto 0;
+  display: block; width: max-content;
+  background: var(--indigo); color: var(--lavender);
+  font-family: var(--hi-display); font-size: 16px;
+  padding: 14px 36px; border-radius: 999px;
+}
+
+/* ---------- SWATCHES ---------- */
+.swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 720px) { .swatches { grid-template-columns: repeat(2, 1fr); } }
+.swatch {
+  border-radius: 12px;
+  padding: 24px 16px;
+  font-family: var(--body); font-size: 11px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  min-height: 120px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.swatch .name { font-weight: 700; }
+.swatch .hex { font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: lowercase; opacity: 0.85; }
+.sw-cream { background: var(--cream); color: var(--indigo); border: 1px solid var(--indigo-soft); }
+.sw-indigo { background: var(--indigo); color: var(--cream); }
+.sw-teal { background: var(--ink-teal); color: var(--cream); }
+.sw-taupe { background: var(--taupe); color: var(--cream); }
+.sw-sindoor { background: var(--sindoor); color: var(--cream); }
+.sw-emerald { background: var(--emerald); color: var(--gold); }
+.sw-gold { background: var(--gold); color: var(--emerald); }
+.sw-lavender { background: var(--lavender); color: var(--violet); border: 1px solid #d8d0ff; }
+
+/* ---------- TYPE SPECIMEN ---------- */
+.specimen { padding: 32px 0; border-top: 1px solid rgba(28, 36, 84, 0.1); border-bottom: 1px solid rgba(28, 36, 84, 0.1); margin: 24px 0; }
+.specimen-row { display: flex; gap: 24px; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed rgba(28, 36, 84, 0.1); }
+.specimen-tag { font-family: var(--mono); font-size: 11px; color: var(--taupe); width: 140px; flex-shrink: 0; }
+.specimen-text { color: var(--indigo); }
+.t-display-hi { font-family: var(--hi-display); font-size: 48px; line-height: 1.15; }
+.t-display-en { font-family: var(--en-display); font-size: 36px; line-height: 1.15; }
+.t-h1 { font-family: var(--hi-display); font-size: 28px; line-height: 1.3; }
+.t-body-hi { font-family: var(--hi-display); font-size: 17px; line-height: 1.55; }
+.t-body { font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.t-caption { font-family: var(--body); font-size: 13px; line-height: 1.5; color: var(--taupe); }
+.t-mono { font-family: var(--mono); font-size: 13px; color: var(--ink-teal); }
+
+/* ---------- SCROLL INDEX ---------- */
+.toc {
+  position: sticky; top: 0;
+  background: var(--cream);
+  padding: 16px 0;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(28, 36, 84, 0.1);
+  display: flex; gap: 24px;
+  font-family: var(--body); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--taupe);
+  z-index: 10;
+}
+.toc a { color: var(--taupe); text-decoration: none; }
+.toc a:hover { color: var(--sindoor); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="brand">सहेली</h1>
+  <p class="brand-en">Saheli — Editorial Bharat</p>
+</header>
+
+<nav class="toc">
+  <a href="#palette">01 / Palette</a>
+  <a href="#type">02 / Type</a>
+  <a href="#mockups">03 / Mockups</a>
+  <a href="#covers">04 / Covers</a>
+</nav>
+
+<section id="palette">
+  <p class="section-label">01 / Palette</p>
+  <h2 class="section-title">रंग — पुराने ब्लॉक प्रिंट से</h2>
+  <p class="section-sub">Five colors. Pulled from Bagh and Ajrakh block prints. Sindoor is the only red, used only for distress.</p>
+  <div class="swatches">
+    <div class="swatch sw-cream"><span class="name">Cream</span><span class="hex">#fefae0</span></div>
+    <div class="swatch sw-indigo"><span class="name">Indigo</span><span class="hex">#1c2454</span></div>
+    <div class="swatch sw-teal"><span class="name">Ink Teal</span><span class="hex">#0e3b3c</span></div>
+    <div class="swatch sw-taupe"><span class="name">Taupe</span><span class="hex">#7a6f47</span></div>
+    <div class="swatch sw-sindoor"><span class="name">Sindoor</span><span class="hex">#c5443c</span></div>
+    <div class="swatch sw-emerald"><span class="name">Emerald · Duas</span><span class="hex">#0e2b27</span></div>
+    <div class="swatch sw-gold"><span class="name">Gold · Duas</span><span class="hex">#d4a24c</span></div>
+    <div class="swatch sw-lavender"><span class="name">Lavender · Cycle</span><span class="hex">#f3f0ff</span></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section id="type">
+  <p class="section-label">02 / Type</p>
+  <h2 class="section-title">अक्षर — देवनागरी पहले</h2>
+  <p class="section-sub">Tiro Devanagari Hindi for editorial display. Mukta for body across both scripts. Fraunces for Latin display. Devanagari leads, English follows.</p>
+
+  <div class="specimen">
+    <div class="specimen-row">
+      <span class="specimen-tag">DISPLAY · HI</span>
+      <span class="specimen-text t-display-hi">मदद चाहिए?</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">DISPLAY · EN</span>
+      <span class="specimen-text t-display-en">Need help?</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">H1 · HI</span>
+      <span class="specimen-text t-h1">आपके अधिकार</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">BODY · HI</span>
+      <span class="specimen-text t-body-hi">यह जगह सिर्फ़ आपकी है। यहाँ आप अपनी कहानी, अपने सबूत, और अपने सवाल सुरक्षित रख सकती हैं।</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">BODY · EN</span>
+      <span class="specimen-text t-body">This space is yours alone. Keep your evidence, your story, and your questions safe.</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">CAPTION</span>
+      <span class="specimen-text t-caption">Sources · PWDVA 2005 · NALSA · S. 125 CrPC</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-tag">MONO</span>
+      <span class="specimen-text t-mono">SHA-256: a8f3c0b41d…  ·  GPS: 26.84°N 80.95°E</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section id="mockups">
+  <p class="section-label">03 / Mockups</p>
+  <h2 class="section-title">Saheli — खुले मोड में</h2>
+  <p class="section-sub">The default Saheli, open mode. Cream surface. SOS hero in sindoor. Four module tiles. Devanagari first, English secondary.</p>
+
+  <div class="row">
+    <!-- HOME -->
+    <div>
+      <div class="phone"><div class="phone-inner">
+        <div class="phone-status"><span>9:41</span><span>●●●●● · 4G</span></div>
+        <div class="sh-header">
+          <div>
+            <div class="sh-wordmark">सहेली</div>
+          </div>
+          <div class="sh-icons">
+            <button class="icon-btn" aria-label="Settings">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c2454" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="sh-greeting">नमस्ते। आप क्या करना चाहती हैं?</div>
+        <div class="sh-greeting-en">Welcome. What would you like to do?</div>
+        <div class="sh-sos-card">
+          <div class="sh-sos-headline">मदद चाहिए?</div>
+          <div class="sh-sos-button">मदद<span class="en">SOS</span></div>
+          <div class="sh-sos-hint">Press to send help · बटन दबाएं</div>
+        </div>
+        <div style="height:16px;background-image:url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='16' viewBox='0 0 80 16'><g fill='none' stroke='%231c2454' stroke-opacity='0.3' stroke-width='1.2'><path d='M0 8 L80 8'/><path d='M10 4 L14 8 L10 12 L6 8 Z'/><path d='M30 4 L34 8 L30 12 L26 8 Z'/><path d='M50 4 L54 8 L50 12 L46 8 Z'/><path d='M70 4 L74 8 L70 12 L66 8 Z'/><circle cx='20' cy='8' r='1.4'/><circle cx='40' cy='8' r='1.4'/><circle cx='60' cy='8' r='1.4'/></g></svg>&quot;);background-repeat:repeat-x;background-size:80px 16px;margin-top:24px;"></div>
+        <div class="sh-tiles">
+          <div class="sh-tile">
+            <svg class="sh-tile-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e3b3c" stroke-width="1.5"><path d="M12 2 L3 6 v6 c0 5 4 9 9 10 c5-1 9-5 9-10 V6 z"/><path d="M8 12 h8"/></svg>
+            <div>
+              <div class="sh-tile-hi">सबूत</div>
+              <div class="sh-tile-en">Evidence</div>
+            </div>
+          </div>
+          <div class="sh-tile">
+            <svg class="sh-tile-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e3b3c" stroke-width="1.5"><path d="M12 3 v18"/><path d="M5 8 h14"/><path d="M5 8 L2 14 a3 3 0 0 0 6 0 z"/><path d="M19 8 L22 14 a3 3 0 0 1-6 0 z"/></svg>
+            <div>
+              <div class="sh-tile-hi">अधिकार</div>
+              <div class="sh-tile-en">Rights</div>
+            </div>
+          </div>
+          <div class="sh-tile">
+            <svg class="sh-tile-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e3b3c" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 10 l2 2 l4-4"/></svg>
+            <div>
+              <div class="sh-tile-hi">योजना</div>
+              <div class="sh-tile-en">Schemes</div>
+            </div>
+          </div>
+          <div class="sh-tile">
+            <svg class="sh-tile-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e3b3c" stroke-width="1.5"><path d="M3 12 h4 l2-5 l3 10 l3-7 l2 4 h4"/></svg>
+            <div>
+              <div class="sh-tile-hi">सेहत</div>
+              <div class="sh-tile-en">Health</div>
+            </div>
+          </div>
+        </div>
+        <div class="sh-footer">SAHELI को 56161 पर SMS भेजें · Works on feature phones too</div>
+      </div></div>
+      <p class="phone-caption">Home · cream / indigo / sindoor</p>
+    </div>
+
+    <!-- RIGHTS -->
+    <div>
+      <div class="phone"><div class="phone-inner">
+        <div class="phone-status"><span>9:42</span><span>●●●●● · 4G</span></div>
+        <div class="chat-header">
+          <div class="chat-title-hi">अधिकार</div>
+          <div class="chat-title-en">Know your rights</div>
+          <div class="chat-toggle"><span class="dot"></span> Voice playback off · सुरक्षित जगह पर ही चालू करें</div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-bubble user">मेरा पति मुझे मारता है, मैं क्या करूँ?</div>
+          <div class="chat-bubble bot">
+            बहन, आप अकेली नहीं हैं। PWDVA 2005 के तहत आप शारीरिक हिंसा से सुरक्षा का आदेश माँग सकती हैं। पास के Protection Officer या ज़िला One-Stop Centre से संपर्क करें — शुल्क नहीं लगता।
+            <div class="chat-sources">
+              <span class="chat-source-chip">PWDVA 2005</span>
+              <span class="chat-source-chip">IPC 498A</span>
+              <span class="chat-source-chip">NALSA</span>
+            </div>
+          </div>
+          <div class="chat-tool-card">
+            <div class="chat-tool-label">Nearest OSC · पास का सखी केंद्र</div>
+            <div class="chat-tool-title">सखी वन-स्टॉप सेंटर, लखनऊ</div>
+            <div class="chat-tool-meta">Hazratganj · 0522-2620199 · 2.4 km</div>
+            <span class="chat-tool-cta">Call now · कॉल करें</span>
+          </div>
+        </div>
+        <div class="chat-chips">
+          <span class="chat-chip">तलाक कैसे लूँ?</span>
+          <span class="chat-chip">बच्चे की कस्टडी</span>
+          <span class="chat-chip">मुफ़्त वकील</span>
+        </div>
+        <div class="chat-input">
+          <span class="chat-mic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fefae0" stroke-width="1.5"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11 v1 a7 7 0 0 0 14 0 v-1"/><path d="M12 19 v3"/></svg>
+          </span>
+          <span class="chat-input-field">पूछें — Hold to speak</span>
+        </div>
+      </div></div>
+      <p class="phone-caption">Rights · streaming chat with RAG sources + tool card</p>
+    </div>
+
+    <!-- VAULT -->
+    <div>
+      <div class="phone"><div class="phone-inner">
+        <div class="phone-status"><span>9:43</span><span>●●●●● · 4G</span></div>
+        <div class="vault-header">
+          <div class="chat-title-hi">सबूत तिजोरी</div>
+          <div class="chat-title-en">Evidence vault · 7 items</div>
+        </div>
+        <div class="vault-search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7a6f47" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21 L16 16"/></svg>
+          <span>Search transcripts… · खोजें</span>
+        </div>
+        <div class="vault-list">
+          <div class="vault-item">
+            <div class="vault-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c2454" stroke-width="1.5"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11 v1 a7 7 0 0 0 14 0 v-1"/></svg>
+            </div>
+            <div class="vault-item-body">
+              <div class="vault-item-title">"…पैसे माँग रहा था चाय के लिए चिल्ला रहा था…"</div>
+              <div class="vault-item-meta">07 May · 26.84°N 80.95°E · sha 8f3c…</div>
+            </div>
+          </div>
+          <div class="vault-item">
+            <div class="vault-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c2454" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17 L15 12 L7 19"/></svg>
+            </div>
+            <div class="vault-item-body">
+              <div class="vault-item-title">तस्वीर — रसोई की दीवार</div>
+              <div class="vault-item-meta">06 May · 26.84°N 80.95°E · sha 4a91…</div>
+            </div>
+          </div>
+          <div class="vault-item" style="border-color:var(--sindoor); border-width:1.5px;">
+            <div class="vault-item-icon" style="background:var(--sindoor); color:var(--cream);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fefae0" stroke-width="1.8"><path d="M12 2 L2 22 h20 z"/><path d="M12 9 v6"/><circle cx="12" cy="18" r="0.8" fill="#fefae0"/></svg>
+            </div>
+            <div class="vault-item-body">
+              <div class="vault-item-title" style="color:var(--sindoor);">SOS भेजा गया</div>
+              <div class="vault-item-meta">05 May 21:14 · 3 contacts · sha b2e7…</div>
+            </div>
+          </div>
+          <div class="vault-item">
+            <div class="vault-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c2454" stroke-width="1.5"><path d="M5 4 h14 v16 H5 z"/><path d="M9 9 h6"/><path d="M9 13 h6"/><path d="M9 17 h4"/></svg>
+            </div>
+            <div class="vault-item-body">
+              <div class="vault-item-title">नोट — माँ के साथ बातचीत</div>
+              <div class="vault-item-meta">04 May · sha 1d20…</div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <p class="phone-caption">Vault · transcribed & searchable, sindoor only on SOS entry</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section id="covers">
+  <p class="section-label">04 / Covers</p>
+  <h2 class="section-title">तीन कवर — एक रीढ़</h2>
+  <p class="section-sub">When Privacy Mode is on, the user picks a cover. The covers are deliberately different from each other and from the Editorial Bharat core. Same gestures, different surfaces.</p>
+
+  <div class="row">
+    <div>
+      <div class="phone"><div class="phone-inner cover-mantras">
+        <div class="phone-status" style="color:#fefae0;"><span>9:44</span><span>●●●●● · 4G</span></div>
+        <div class="wordmark">सहेली</div>
+        <div class="saffron-tag">Daily Mantras · दैनिक मंत्र</div>
+        <div class="mantra-card">
+          <div class="mantra-deity">श्री गणेश</div>
+          <div class="mantra-text">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ</div>
+          <div class="mantra-translit">Vakratunda mahaakaaya suryakoti samaprabha</div>
+          <div class="mantra-meaning">O Lord with the curved trunk and mighty form, equal in radiance to a million suns.</div>
+        </div>
+        <div style="text-align:center; margin-top:32px;">
+          <div style="width:80px;height:80px;border-radius:999px;border:1.5px solid var(--saffron);margin:0 auto;display:flex;align-items:center;justify-content:center;color:var(--saffron);font-family:var(--hi-display);font-size:24px;">17</div>
+          <div style="color:#f5e9d3;opacity:0.6;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;margin-top:10px;">माला · 17 / 108</div>
+        </div>
+      </div></div>
+      <p class="phone-caption">Cover · Daily Mantras (Hindu)</p>
+    </div>
+
+    <div>
+      <div class="phone"><div class="phone-inner cover-duas">
+        <div class="phone-status" style="color:#f5ecd9;"><span>9:44</span><span>●●●●● · 4G</span></div>
+        <div class="wordmark">दैनिक दुआ</div>
+        <div class="bismillah">بِسْمِ ٱللَّٰهِ</div>
+        <div class="dua-card">
+          <div class="arabic">رَبِّ اشْرَحْ لِي صَدْرِي</div>
+          <div class="translit">Rabbish-rah lee sadree</div>
+          <div class="meaning">My Lord, expand for me my breast (with assurance).</div>
+        </div>
+        <div class="tasbih">23</div>
+        <div class="tasbih-label">तसबीह · 23 / 33</div>
+      </div></div>
+      <p class="phone-caption">Cover · Daily Duas (Muslim)</p>
+    </div>
+
+    <div>
+      <div class="phone"><div class="phone-inner cover-cycle">
+        <div class="phone-status" style="color:#1c2454;"><span>9:44</span><span>●●●●● · 4G</span></div>
+        <div class="wordmark">मासिक चक्र</div>
+        <div class="sub">Cycle &amp; Wellness</div>
+        <div class="ring">
+          <div class="ring-inner">
+            <div class="ring-day">14</div>
+            <div class="ring-of">of 28 · दिन</div>
+          </div>
+        </div>
+        <div class="log-btn">आज लॉग करें</div>
+      </div></div>
+      <p class="phone-caption">Cover · Cycle &amp; Wellness (secular)</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section style="text-align:center; padding:64px 0;">
+  <p style="font-family:var(--en-display); font-style:italic; font-size:13px; color:var(--taupe); letter-spacing:0.2em;">DESIGNED FOR ME — NOT A TRANSLATED AMERICAN APP</p>
+  <p style="font-family:var(--hi-display); font-size:22px; color:var(--indigo); margin-top:12px;">यह जगह सिर्फ़ आपकी है।</p>
+</section>
+
+</body>
+</html>
