@@ -48,7 +48,7 @@ export type ToolDef = {
   };
 };
 
-// ─────────── Telemetry ───────────
+// Telemetry
 
 const TELEMETRY_KEY = 'saheli.ai.telemetry';
 const TELEMETRY_CAP = 200;
@@ -107,7 +107,7 @@ export async function clearTelemetry(): Promise<void> {
   await AsyncStorage.removeItem(TELEMETRY_KEY);
 }
 
-// ─────────── STT / TTS / Chat ───────────
+// STT / TTS / Chat
 
 /**
  * sarvam-m is a thinking model — its raw output wraps internal reasoning in
@@ -388,7 +388,7 @@ export async function chatStream(
   }
 }
 
-// ─────────── OCR ───────────
+// OCR
 
 /** Extract text from a card / document image via Sarvam OCR. */
 export async function ocr(imageUri: string): Promise<string> {
@@ -417,7 +417,7 @@ export async function ocr(imageUri: string): Promise<string> {
   });
 }
 
-// ─────────── Embeddings ───────────
+// Embeddings
 
 // One-time notice so devs aren't surprised: hash-fallback is engaged for
 // embeddings on every call (Sarvam doesn't expose /embeddings on this key).

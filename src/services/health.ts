@@ -65,7 +65,7 @@ export async function saveCervical(r: CervicalResult): Promise<void> {
   await AsyncStorage.setItem(K_CERV, JSON.stringify(r));
 }
 
-// ─────────── Drafts (partial-save for screening modals) ───────────
+// Drafts: partial-save for screening modals
 
 export type DraftKind = 'epds' | 'pcos' | 'cervical';
 export type ScreeningDraft = {
@@ -106,7 +106,7 @@ export async function saveMeds(s: string): Promise<void> {
   await AsyncStorage.setItem(K_MED, s);
 }
 
-// ─────────── Doctor-card AI summary cache ───────────
+// Doctor-card AI summary cache
 
 const K_DOC_SUMMARY = 'saheli.health.doctor.summary';
 

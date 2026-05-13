@@ -80,7 +80,7 @@ export default function HealthScreen() {
   );
 }
 
-// ─────────── Symptoms ───────────
+// Symptoms
 
 function SymptomsTab() {
   const [items, setItems] = useState<SymptomEntry[]>([]);
@@ -236,7 +236,7 @@ function SymptomsTab() {
   );
 }
 
-// ─────────── Screenings ───────────
+// Screenings
 
 function ScreeningsTab() {
   const [epds, setEpds] = useState<EpdsResult | null>(null);
@@ -550,7 +550,7 @@ function YesNoQuiz({
   );
 }
 
-// ─────────── Doctor Card ───────────
+// Doctor Card
 
 function DoctorCardTab() {
   const [profile, setProfile] = useState<ProfileInput>({});

@@ -5,7 +5,7 @@ import { SCHEMES, type Scheme } from '../data/schemes';
 import { embed, type ToolDef } from './sarvam';
 import { cosine } from './rag';
 
-// ─────────── Tool definitions (schema for the model) ───────────
+// Tool definitions (schema for the model)
 
 export const TOOL_DEFS: ToolDef[] = [
   {
@@ -90,7 +90,7 @@ export const TOOL_DEFS: ToolDef[] = [
   },
 ];
 
-// ─────────── Tool implementations ───────────
+// Tool implementations
 
 type FindOscResult = { name: string; district: string; phone: string };
 
@@ -263,7 +263,7 @@ async function matchSchemesTool(args: { situation_description: string }): Promis
     }));
 }
 
-// ─────────── Runner ───────────
+// Runner
 
 /**
  * Execute a tool by name with model-supplied args. Returns a string suitable

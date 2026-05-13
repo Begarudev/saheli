@@ -19,7 +19,7 @@ export const fonts = {
 } as const;
 
 export const colors = {
-  // ── Editorial Bharat (Saheli core) ───────────────
+  // Editorial Bharat (Saheli core)
   cream: '#fefae0',
   creamSoft: '#f5e9d3',
   indigo: '#1c2454',
@@ -29,7 +29,7 @@ export const colors = {
   sindoor: '#c5443c',
   sindoorSoft: '#e09c97',
 
-  // ── Aliases for existing imports ─────────────────
+  // Aliases for existing imports
   bg: '#fefae0',              // was navy; now cream
   bgDeep: '#f5e9d3',          // was deeper navy; now cream-soft
   text: '#0e3b3c',            // was cream; now ink teal on cream bg
