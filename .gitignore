@@ -1,5 +1,3 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
 # dependencies
 node_modules/
 
@@ -30,7 +28,8 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# env
+.env
 .env*.local
 
 # typescript
@@ -39,3 +38,28 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+.gstack/
+
+# Release signing keystore — do not commit
+android/app/saheli-release.keystore
+
+# Build artifacts
+*.apk
+*.aab
+
+# Local generated decks (regenerable via scripts/)
+/generated/
+
+# Loose working-copy images duplicated under assets/images/
+/bindi_woman.jpg
+/diwali_folk.jpg
+/lotus_india.jpg
+/lotus_pink.jpg
+/meena_candidate.jpg
+/rangoli_festival.jpg
+/rural_women_empowerment.jpg
+/village_woman.jpg
+/women_rangoli.jpg
+
+# Empty marker
+.codex
